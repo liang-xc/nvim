@@ -10,6 +10,8 @@ return require('packer').startup(function(use)
 
   -- helpers
   use 'windwp/nvim-autopairs'
+  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use 'folke/which-key.nvim' -- ":WhichKey"
 
   -- LSP
   use 'neovim/nvim-lspconfig' -- lsp
