@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
 
   -- colorscheme and UI
   use 'EdenEast/nightfox.nvim' -- theme nordfox
+  use 'nvim-tree/nvim-web-devicons'
   use 'nvim-lualine/lualine.nvim' -- statusline
   use "lewis6991/gitsigns.nvim"
 
@@ -32,6 +33,7 @@ return require('packer').startup(function(use)
   use "p00f/clangd_extensions.nvim" -- more from clangd
 
   -- diagnostics and formatting
+  use 'folke/trouble.nvim' -- list for showing diagnostics and others
   use "jose-elias-alvarez/null-ls.nvim"
 
   -- treesitter
