@@ -1,5 +1,6 @@
 local luasnip = require('luasnip')
 local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 cmp.setup({
   snippet = {
@@ -52,6 +53,13 @@ cmp.setup({
       cmp.config.compare.order,
     },
   },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text',
+      maxwidth = 50,
+      ellipsis_char = '...',
+    })
+  }
 })
 
 vim.cmd [[
