@@ -48,7 +48,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Lua
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = function(client, bufnr)
     on_attach(client, bufnr)
     enable_format_on_save(client, bufnr)
