@@ -1,51 +1,65 @@
-vim.cmd [[packadd packer.nvim]]
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
+local plugins = {
   -- colorscheme and UI
-  use 'EdenEast/nightfox.nvim' -- theme nordfox
-  use 'nvim-tree/nvim-web-devicons'
-  use 'nvim-lualine/lualine.nvim' -- statusline
-  use "lewis6991/gitsigns.nvim"
+  'EdenEast/nightfox.nvim',    -- theme nordfox
+  'nvim-tree/nvim-web-devicons',
+  'nvim-lualine/lualine.nvim', -- statusline
+  'lewis6991/gitsigns.nvim',
 
   -- helpers
-  use 'windwp/nvim-autopairs'
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
-  use 'folke/which-key.nvim' -- ":WhichKey"
+  'windwp/nvim-autopairs',
+  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
+  'folke/which-key.nvim',  -- ":WhichKey"
 
   -- LSP
-  use 'neovim/nvim-lspconfig' -- lsp
-  use 'onsails/lspkind-nvim' -- vscode-like pictograms
-  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in lsp
-  use 'hrsh7th/cmp-cmdline' -- nvim-cmp source for command
-  use 'hrsh7th/cmp-nvim-lua' -- nvim lua runtime API completion
-  use 'hrsh7th/cmp-path' -- nvim-cmp source for path
-  use 'hrsh7th/nvim-cmp' -- completion
-  use 'L3MON4D3/LuaSnip' -- snippet
+  'neovim/nvim-lspconfig', -- lsp
+  'onsails/lspkind-nvim',  -- vscode-like pictograms
+  'hrsh7th/cmp-buffer',    -- nvim-cmp source for buffer words
+  'hrsh7th/cmp-nvim-lsp',  -- nvim-cmp source for neovim's built-in lsp
+  'hrsh7th/cmp-cmdline',   -- nvim-cmp source for command
+  'hrsh7th/cmp-nvim-lua',  -- nvim lua runtime API completion
+  'hrsh7th/cmp-path',      -- nvim-cmp source for path
+  'hrsh7th/nvim-cmp',      -- completion
+  'L3MON4D3/LuaSnip',      -- snippet
 
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-  }
+  'williamboman/mason.nvim',
+  "williamboman/mason-lspconfig.nvim",
 
-  use "p00f/clangd_extensions.nvim" -- more from clangd
+
+  "p00f/clangd_extensions.nvim", -- more from clangd
 
   -- diagnostics and formatting
-  use 'folke/trouble.nvim' -- list for showing diagnostics and others
-  use "jose-elias-alvarez/null-ls.nvim"
+  'folke/trouble.nvim', -- list for showing diagnostics and others
+  "jose-elias-alvarez/null-ls.nvim",
 
   -- treesitter
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+    build = ':TSUpdate'
+  },
 
   -- telescope
-  use {
+  {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
-  use 'nvim-telescope/telescope-file-browser.nvim'
-end)
+    dependencies = { { 'nvim-lua/plenary.nvim' } }
+  },
+  'nvim-telescope/telescope-file-browser.nvim',
+
+}
+
+local opts = {}
+
+require('lazy').setup(plugins, opts)
