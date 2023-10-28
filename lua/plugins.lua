@@ -14,8 +14,13 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   -- colorscheme and UI
-  'EdenEast/nightfox.nvim',    -- theme nordfox
-  'nvim-tree/nvim-web-devicons',
+  {
+    'EdenEast/nightfox.nvim', -- theme nordfox
+    lazy = false,
+    priority = 1000,
+  },
+
+  { 'nvim-tree/nvim-web-devicons', lazy = true },
   'nvim-lualine/lualine.nvim', -- statusline
   'lewis6991/gitsigns.nvim',
 
@@ -57,6 +62,8 @@ local plugins = {
     dependencies = { { 'nvim-lua/plenary.nvim' } }
   },
   'nvim-telescope/telescope-file-browser.nvim',
+
+  'stevearc/aerial.nvim'
 
 }
 
