@@ -1,3 +1,3 @@
-require('base')
-require('maps')
-require('plugins')
+require("base")
+require("maps")
+require("plugins")
