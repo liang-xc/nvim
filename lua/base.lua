@@ -31,17 +31,9 @@ if vim.fn.has("win32") then
   vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 end
 
--- python specific indent
-vim.cmd([[ autocmd FileType python setlocal ts=4 sts=4 sw=4 ]])
-
 if vim.fn.has("linux") then
   vim.g.python3_host_prog = "/usr/sbin/python"
 end
-
--- C-indenting
-vim.cmd([[ autocmd FileType cpp setlocal ts=2 sts=2 sw=2 ]])
-vim.opt.cindent = true
-vim.opt.cino = { "g1, t0" }
 
 -- highlights
 vim.opt.termguicolors = true
