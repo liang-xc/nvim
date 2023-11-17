@@ -10,8 +10,8 @@ vim.keymap.set("n", "N", "nzzzv")
 -- New tab
 vim.keymap.set("n", "te", ":tabedit")
 -- Split window
-vim.keymap.set("n", "ss", ":split<Return><C-w>w")
-vim.keymap.set("n", "sv", ":vsplit<Return><C-w>w")
+vim.keymap.set("n", "<space>ss", ":split<Return><C-w>w")
+vim.keymap.set("n", "<space>sv", ":vsplit<Return><C-w>w")
 -- Move window
 vim.keymap.set("n", "<space><space>", "<C-w>w")
 vim.keymap.set("n", "<space>h", "<C-w>h")
