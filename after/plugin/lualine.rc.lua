@@ -1,14 +1,25 @@
+local function get_python_venv()
+  if vim.bo.filetype ~= "python" then
+    return ""
+  end
+  if os.getenv("VIRTUAL_ENV") == nil then
+    return "System"
+  end
+  return os.getenv("VIRTUAL_ENV"):match("[^/\\]+$")
+end
+
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = {},
   },
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch" },
     lualine_c = {
+      { get_python_venv },
       {
         "filename",
         file_status = true,
@@ -25,7 +36,7 @@ require("lualine").setup({
       "filetype",
     },
     lualine_y = { "progress" },
-    lualine_z = { "locations" },
+    lualine_z = { "location" },
   },
   inactive_sections = {
     lualine_a = {},

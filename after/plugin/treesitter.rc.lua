@@ -12,5 +12,6 @@ require("nvim-treesitter.configs").setup({
     "cpp",
     "lua",
     "python",
+    "rust",
   },
 })
