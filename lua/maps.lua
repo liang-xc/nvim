@@ -1,5 +1,5 @@
 vim.keymap.set("n", "<leader>s", ":w<Return>")
-vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<Return>")
+vim.keymap.set("n", "<leader>h", ":ClangdSwitchSourceHeader<Return>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -9,9 +9,13 @@ vim.keymap.set("n", "N", "nzzzv")
 
 -- New tab
 vim.keymap.set("n", "te", ":tabedit")
+vim.keymap.set("n", "<tab>", ":tabnext<Return>", { noremap = true, silent = true })
+vim.keymap.set("n", "<s-tab>", ":tabprev<Return>", { noremap = true, silent = true })
+
 -- Split window
 vim.keymap.set("n", "<space>ss", ":split<Return><C-w>w")
 vim.keymap.set("n", "<space>sv", ":vsplit<Return><C-w>w")
+
 -- Move window
 vim.keymap.set("n", "<space><space>", "<C-w>w")
 vim.keymap.set("n", "<space>h", "<C-w>h")

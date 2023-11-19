@@ -22,6 +22,7 @@ local plugins = {
 
   { "nvim-tree/nvim-web-devicons", lazy = true },
   "nvim-lualine/lualine.nvim", -- statusline
+  "nanozuki/tabby.nvim", -- tabline
   "lewis6991/gitsigns.nvim",
 
   -- helpers

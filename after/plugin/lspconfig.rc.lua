@@ -93,3 +93,15 @@ nvim_lsp.cmake.setup({
   on_attach = on_attach,
   capabilities = capabilities,
 })
+
+-- Standard ML
+nvim_lsp.millet.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- Rust
+nvim_lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
