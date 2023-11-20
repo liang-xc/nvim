@@ -3,16 +3,12 @@ require("conform").setup({
     lua = { "stylua" },
     python = { "black" },
   },
-  format_on_save = {
-    lsp_fallback = true,
-    async = false,
-  },
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
+  format_on_save = function(bufnr)
+    local ignore_filetypes = { "python" }
+    if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+      return
+    end
+    return { timeout_ms = 500, lsp_fallback = true }
   end,
 })
 

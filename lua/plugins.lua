@@ -45,6 +45,7 @@ local plugins = {
   "williamboman/mason-lspconfig.nvim",
 
   "p00f/clangd_extensions.nvim", -- more from clangd
+  "simrat39/rust-tools.nvim", -- more for rust
 
   -- diagnostics and formatting
   "folke/trouble.nvim", -- list for showing diagnostics and others
