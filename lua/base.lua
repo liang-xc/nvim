@@ -39,8 +39,7 @@ end
 -- highlights
 vim.opt.termguicolors = true
 vim.opt.winblend = 0
-vim.opt.wildoptions = "pum"
-vim.opt.pumblend = 5
+vim.opt.pumblend = 0
 vim.opt.background = "dark"
 vim.opt.colorcolumn = "80"
 vim.cmd([[ highlight ColorColumn ctermbg=0 guibg=#4c566a ]])
