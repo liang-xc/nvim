@@ -33,7 +33,6 @@ local plugins = {
   -- LSP
   "neovim/nvim-lspconfig", -- lsp
   "onsails/lspkind-nvim", -- vscode-like pictograms
-  "hrsh7th/cmp-buffer", -- nvim-cmp source for buffer words
   "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in lsp
   "hrsh7th/cmp-cmdline", -- nvim-cmp source for command
   "hrsh7th/cmp-nvim-lua", -- nvim lua runtime API completion
