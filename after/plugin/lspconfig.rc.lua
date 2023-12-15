@@ -99,12 +99,8 @@ nvim_lsp.millet.setup({
 })
 
 -- Rust
-require("rust-tools").setup({
-  server = {
-    on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<space>ca", require("rust-tools").code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+nvim_lsp.rust_analyzer.setup({
+  capabilities = capabilities,
 })
 
 -- Powershell
