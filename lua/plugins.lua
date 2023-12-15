@@ -22,7 +22,6 @@ local plugins = {
 
   { "nvim-tree/nvim-web-devicons", lazy = true },
   "nvim-lualine/lualine.nvim", -- statusline
-  "nanozuki/tabby.nvim", -- tabline
   "lewis6991/gitsigns.nvim",
 
   -- helpers
@@ -44,7 +43,6 @@ local plugins = {
   "williamboman/mason-lspconfig.nvim",
 
   "p00f/clangd_extensions.nvim", -- more from clangd
-  "simrat39/rust-tools.nvim", -- more for rust
 
   -- diagnostics and formatting
   "folke/trouble.nvim", -- list for showing diagnostics and others

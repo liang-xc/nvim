@@ -8,11 +8,15 @@ local function get_python_venv()
   return os.getenv("VIRTUAL_ENV"):match("[^/\\]+$")
 end
 
+local function icon()
+  return ""
+end
+
 require("lualine").setup({
   options = {
     icons_enabled = true,
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    component_separators = { left = "|", right = "|" },
+    section_separators = { left = "", right = "" },
     disabled_filetypes = {},
   },
   sections = {
@@ -50,6 +54,13 @@ require("lualine").setup({
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {},
+  tabline = {
+    lualine_a = { icon },
+    lualine_b = { "fileformat" },
+    lualine_c = { "buffers" },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
+  },
   extensions = {},
 })
