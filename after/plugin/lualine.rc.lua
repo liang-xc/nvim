@@ -12,6 +12,11 @@ local function icon()
   return ""
 end
 
+local function trailing_whitespace_line()
+  local space = vim.fn.search([[\s\+$]], "nwc")
+  return space ~= 0 and "twl #" .. space or ""
+end
+
 require("lualine").setup({
   options = {
     icons_enabled = true,
@@ -57,10 +62,47 @@ require("lualine").setup({
   tabline = {
     lualine_a = { icon },
     lualine_b = { "fileformat" },
-    lualine_c = { "buffers" },
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {},
+    lualine_c = {
+      {
+        "tabs",
+        tab_max_length = 40,
+        max_length = vim.o.columns / 3,
+        mode = 1,
+        path = 0,
+        use_mode_colors = true,
+        tabs_color = {
+          active = "lualine_c_normal",
+          inactive = "lualine_c_inactive",
+        },
+      },
+    },
+    lualine_x = { trailing_whitespace_line },
+    lualine_y = {
+      {
+        "aerial",
+        sep = ")",
+        depth = 1,
+        colored = true,
+      },
+    },
+    lualine_z = {
+      {
+        "windows",
+        show_file_name_only = true,
+        show_modified_status = true,
+        mode = 1,
+        max_length = vim.o.columns * 2 / 3,
+        filetype_names = {
+          TelescopePrompt = "Telescope",
+        },
+        disabled_buftypes = { "quickfix" },
+        use_mode_colors = true,
+        windows_color = {
+          active = "lualine_z_normal",
+          inactive = "lualine_z_inactive",
+        },
+      },
+    },
   },
-  extensions = {},
+  extensions = { "aerial" },
 })
