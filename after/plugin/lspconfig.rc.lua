@@ -93,6 +93,11 @@ nvim_lsp.cmake.setup({
   capabilities = capabilities,
 })
 
+--ocaml
+nvim_lsp.ocamllsp.setup({
+  capabilities = capabilities,
+})
+
 -- Standard ML
 nvim_lsp.millet.setup({
   capabilities = capabilities,
