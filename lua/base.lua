@@ -1,33 +1,34 @@
-vim.cmd("autocmd!")
-
 vim.scriptencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
 
-vim.opt.backup = false
+vim.o.autoindent = true
+vim.o.backup = false
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
-vim.opt.breakindent = true
-vim.opt.expandtab = true
-vim.opt.ignorecase = true
-vim.opt.inccommand = "split"
-vim.opt.incsearch = true
-vim.opt.list = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.scrolloff = 5
-vim.opt.smartindent = true
-vim.opt.shiftwidth = 2
-vim.opt.showtabline = 2
-vim.opt.signcolumn = "yes"
-vim.opt.smartcase = true
-vim.opt.softtabstop = 2
-vim.opt.tabstop = 2
-vim.opt.title = true
-vim.opt.wrap = false
+vim.o.breakindent = true
+vim.o.expandtab = true
+vim.o.hlsearch = false
+vim.o.ignorecase = true
+vim.o.inccommand = "split"
+vim.o.incsearch = true
+vim.o.list = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.scrolloff = 5
+vim.o.smartindent = true
+vim.o.shiftwidth = 2
+vim.o.showtabline = 2
+vim.o.signcolumn = "yes"
+vim.o.smartcase = true
+vim.o.softtabstop = 2
+vim.o.tabstop = 2
+vim.o.title = true
+vim.o.wrap = false
 
 if vim.fn.has("linux") then
   vim.opt.clipboard:append({ "unnamedplus" })
 end
+
 if vim.fn.has("win32") then
   vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 end
@@ -37,9 +38,8 @@ if vim.fn.has("linux") then
 end
 
 -- highlights
-vim.opt.termguicolors = true
-vim.opt.winblend = 0
-vim.opt.pumblend = 0
-vim.opt.background = "dark"
-vim.opt.colorcolumn = "80"
-vim.cmd([[ highlight ColorColumn ctermbg=0 guibg=#4c566a ]])
+vim.o.termguicolors = true
+vim.o.winblend = 0
+vim.o.pumblend = 0
+vim.o.background = "dark"
+vim.o.colorcolumn = "80"
