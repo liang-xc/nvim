@@ -1,64 +1,67 @@
 return {
+  { "folke/neodev.nvim", opts = {}, ft = "lua" },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
-      "folke/neodev.nvim",
     },
     config = function()
       require("mason").setup()
-      require("mason-lspconfig").setup()
-      require("neodev").setup()
+      local lspconfig = require("lspconfig")
+
+      -- cmp lsp capabilities
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-      local lspconfig = require("lspconfig")
-
-      -- lua
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace",
-            },
-          },
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "pyright", "cmake", "powershell_es", "rust_analyzer" },
+        handlers = {
+          function(server_name) -- default handler
+            require("lspconfig")[server_name].setup({
+              capabilities = capabilities,
+            })
+          end,
+          ["lua_ls"] = function()
+            lspconfig.lua_ls.setup({
+              capabilities = capabilities,
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    globals = { "vim" },
+                  },
+                  completion = {
+                    callSnippet = "Replace",
+                  },
+                },
+              },
+            })
+          end,
+          ["pyright"] = function()
+            lspconfig.pyright.setup({
+              capabilities = capabilities,
+              settings = {
+                pyright = {
+                  autoImportCompletion = true,
+                },
+                python = {
+                  analysis = {
+                    autoSearchPaths = true,
+                    diagnosticMode = "openFilesOnly",
+                    useLibraryCodeForTypes = true,
+                    typeCheckingMode = "off",
+                  },
+                },
+              },
+            })
+          end,
         },
       })
 
-      -- python
-      lspconfig.pyright.setup({
-        capabilities = capabilities,
-        settings = {
-          pyright = {
-            autoImportCompletion = true,
-          },
-          python = {
-            analysis = {
-              autoSearchPaths = true,
-              diagnosticMode = "openFilesOnly",
-              useLibraryCodeForTypes = true,
-              typeCheckingMode = "off",
-            },
-          },
-        },
-      })
-
-      -- c++
+      -- lsp that are not installed through Mason
+      -- Install these separately
       lspconfig.clangd.setup({ capabilities = capabilities })
-
-      -- cmake
-      lspconfig.cmake.setup({ capabilities = capabilities })
-
-      --ocaml
       lspconfig.ocamllsp.setup({ capabilities = capabilities })
-
-      -- Rust
-      lspconfig.rust_analyzer.setup({ capabilities = capabilities })
-
-      -- Powershell
-      lspconfig.powershell_es.setup({ capabilities = capabilities })
     end,
   },
   {
