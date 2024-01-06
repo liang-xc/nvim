@@ -3,21 +3,32 @@ return {
     "onsails/lspkind-nvim", -- vscode-like pictograms
   },
   {
-    'hrsh7th/nvim-cmp',
+    "L3MON4D3/LuaSnip",
+    -- follow latest release.
+    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    -- install jsregexp (optional!).
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
     version = false,
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
-      'L3MON4D3/LuaSnip',
       "hrsh7th/cmp-nvim-lsp", -- nvim-cmp source for neovim's built-in lsp
-      "hrsh7th/cmp-cmdline",  -- nvim-cmp source for command
-      "hrsh7th/cmp-path",     -- nvim-cmp source for path
+      "hrsh7th/cmp-cmdline", -- nvim-cmp source for command
+      "hrsh7th/cmp-path", -- nvim-cmp source for path
+      "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip",
     },
-    opts = function()
+    config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local lspkind = require("lspkind")
-      return {
+      require("cmp").setup({
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -37,7 +48,6 @@ return {
               end
             end,
             s = cmp.mapping.confirm({ select = true }),
-            c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
           }),
           ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -75,9 +85,38 @@ return {
               nvim_lua = "[Lua]",
               latex_symbols = "[LaTeX]",
             },
+            symbol_map = {
+              Text = "󰉿",
+              Method = "󰆧",
+              Function = "󰊕",
+              Constructor = "",
+              Field = "󰜢",
+              Variable = "󰀫",
+              Class = "󰠱",
+              Interface = "",
+              Module = "",
+              Property = "󰜢",
+              Unit = "󰑭",
+              Value = "󰎠",
+              Enum = "",
+              Keyword = "󰌋",
+              Snippet = "",
+              Color = "󰏘",
+              File = "󰈙",
+              Reference = "󰈇",
+              Folder = "󰉋",
+              EnumMember = "",
+              Constant = "󰏿",
+              Struct = "󰙅",
+              Event = "",
+              Operator = "󰆕",
+              TypeParameter = "",
+            },
           }),
         },
-      }
+      })
+
+      require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
     end,
-  }
+  },
 }

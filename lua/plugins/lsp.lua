@@ -54,14 +54,40 @@ return {
       --ocaml
       lspconfig.ocamllsp.setup({ capabilities = capabilities })
 
-      -- Standard ML
-      lspconfig.millet.setup({ capabilities = capabilities })
-
       -- Rust
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
 
       -- Powershell
       lspconfig.powershell_es.setup({ capabilities = capabilities })
     end,
+  },
+  {
+    "p00f/clangd_extensions.nvim",
+    opts = {
+      ast = {
+        role_icons = {
+          type = "",
+          declaration = "",
+          expression = "",
+          specifier = "",
+          statement = "",
+          ["template argument"] = "",
+        },
+
+        kind_icons = {
+          Compound = "",
+          Recovery = "",
+          TranslationUnit = "",
+          PackExpansion = "",
+          TemplateTypeParm = "",
+          TemplateTemplateParm = "",
+          TemplateParamObject = "",
+        },
+      },
+    },
+  },
+  {
+    "j-hui/fidget.nvim",
+    opts = {},
   },
 }
