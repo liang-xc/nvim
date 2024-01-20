@@ -15,7 +15,7 @@ return {
       capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "pyright", "cmake", "powershell_es", "rust_analyzer" },
+        ensure_installed = { "lua_ls", "pyright", "cmake", "powershell_es", "rust_analyzer", "jsonls", "ruff_lsp" },
         handlers = {
           function(server_name) -- default handler
             require("lspconfig")[server_name].setup({
@@ -53,6 +53,13 @@ return {
                   },
                 },
               },
+            })
+          end,
+          ["ruff_lsp"] = function()
+            lspconfig.ruff_lsp.setup({
+              on_attach = function(client)
+                client.server_capabilities.hoverProvider = false
+              end,
             })
           end,
         },
