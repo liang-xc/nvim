@@ -42,6 +42,9 @@ return {
     end,
     opts = {},
   },
+  {
+    "mbbill/undotree",
+  },
 
   -- diagnostics, linting and formatting
   {

@@ -156,6 +156,9 @@ end, { desc = "[F]ormat file" })
 -- aerial.nvim
 vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "[A]erial Toggle" })
 
+-- undotree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree Toggle" })
+
 -- which-key chain docs
 require("which-key").register({
   ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },

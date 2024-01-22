@@ -49,7 +49,7 @@ return {
                     autoSearchPaths = true,
                     diagnosticMode = "openFilesOnly",
                     useLibraryCodeForTypes = true,
-                    typeCheckingMode = "off",
+                    typeCheckingMode = "standard",
                   },
                 },
               },
