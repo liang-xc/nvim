@@ -1,19 +1,19 @@
 return {
-  { "folke/neodev.nvim", opts = {}, ft = "lua" },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "folke/neodev.nvim",
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      require("mason").setup()
+      require("neodev").setup()
       local lspconfig = require("lspconfig")
-
       -- cmp lsp capabilities
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
+      require("mason").setup()
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "pyright", "cmake", "powershell_es", "rust_analyzer", "jsonls", "ruff_lsp" },
         handlers = {

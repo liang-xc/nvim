@@ -43,3 +43,5 @@ vim.o.winblend = 0
 vim.o.pumblend = 0
 vim.o.background = "dark"
 vim.o.colorcolumn = "80"
+
+vim.g.no_ocaml_maps = 1

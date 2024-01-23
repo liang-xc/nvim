@@ -31,6 +31,15 @@ return {
         -- Add comment at the end of line
         eol = "<space>cA",
       },
+
+      -- Move cursor to the beginning of the nexet line after comment
+      post_hook = function(ctx)
+        local r = table.unpack(vim.api.nvim_win_get_cursor(0))
+        local rcnt = vim.api.nvim_buf_line_count(0)
+        if rcnt > r then
+          vim.api.nvim_win_set_cursor(0, { r + 1, 0 })
+        end
+      end,
     },
   },
   {
