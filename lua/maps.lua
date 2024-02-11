@@ -5,9 +5,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
 -- New tab
-vim.keymap.set("n", "te", ":tabedit")
-vim.keymap.set("n", "<tab>", ":tabnext<Return>", { noremap = true, silent = true })
-vim.keymap.set("n", "<s-tab>", ":tabprev<Return>", { noremap = true, silent = true })
+vim.keymap.set("n", "te", ":tabedit<CR>")
+vim.keymap.set("n", "<tab>", ":tabnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<s-tab>", ":tabprev<CR>", { noremap = true, silent = true })
 
 -- Split window
 vim.keymap.set("n", "<space>ss", ":split<Return><C-w>w")
@@ -30,6 +30,15 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous dia
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+
+-- Git
+vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "[Gi]t" })
+vim.keymap.set("n", "<leader>gp", function()
+  vim.cmd.Git("push")
+end, { desc = "[G]it [P]ush", remap = false })
+vim.keymap.set("n", "<leader>gr", function()
+  vim.cmd.Git({ "pull", "--rebase" })
+end, { desc = "[G]it Pull [r]ebase", remap = false })
 
 -- Lsp
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -129,7 +138,7 @@ end
 
 vim.keymap.set("n", "<leader>s/", telescope_live_grep_open_files, { desc = "[S]earch [/] in Open Files" })
 vim.keymap.set("n", "<leader>ss", require("telescope.builtin").builtin, { desc = "[S]earch [S]elect Telescope" })
-vim.keymap.set("n", "<leader>gf", require("telescope.builtin").git_files, { desc = "Search [G]it [F]iles" })
+vim.keymap.set("n", "<leader>si", require("telescope.builtin").git_files, { desc = "[S]earch G[i]t Files" })
 vim.keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
@@ -144,6 +153,27 @@ vim.api.nvim_set_keymap(
   ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
   { noremap = true, desc = "Telescope file [B]rowser" }
 )
+
+-- trouble.nvim
+vim.keymap.set("n", "<leader>tt", function()
+  require("trouble").toggle()
+end, { desc = "[t]oggle [t]rouble" })
+vim.keymap.set("n", "<leader>tw", function()
+  require("trouble").toggle("workspace_diagnostics")
+end, { desc = "[t]rouble [w]orkspace diagnostics" })
+vim.keymap.set("n", "<leader>td", function()
+  require("trouble").toggle("document_diagnostics")
+end, { desc = "[t]rouble [d]ocument diagnostics" })
+vim.keymap.set("n", "<leader>tq", function()
+  require("trouble").toggle("quickfix")
+end, { desc = "[t]rouble [q]uickfix" })
+vim.keymap.set("n", "<leader>tl", function()
+  require("trouble").toggle("loclist")
+end, { desc = "[t]rouble [l]oclist" })
+vim.keymap.set("n", "<leader>tr", function()
+  require("trouble").toggle("lsp_references")
+end, { desc = "[t]rouble lsp [r]eferences" })
+
 -- conform.nvim
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
   require("conform").format({
@@ -167,7 +197,7 @@ require("which-key").register({
   ["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
   ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
   ["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-  ["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
+  ["<leader>t"] = { name = "[T]rouble", _ = "which_key_ignore" },
   ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
   ["<space>c"] = { name = "[C]omment", _ = "which_key_ignore" },
 })

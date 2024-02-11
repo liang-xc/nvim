@@ -6,6 +6,12 @@ return {
     opts = {},
   },
   {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end,
+  },
+  {
     "numToStr/Comment.nvim",
     opts = {
       -- LHS of toggle mappings in NORMAL mode
@@ -56,6 +62,11 @@ return {
   },
 
   -- diagnostics, linting and formatting
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+  },
   {
     "stevearc/conform.nvim",
     opts = {
