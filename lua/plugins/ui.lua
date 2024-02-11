@@ -29,6 +29,7 @@ return {
     lazy = "VeryLazy",
     opts = {},
   },
+  { "tpope/vim-fugitive" },
   {
     "lewis6991/gitsigns.nvim",
     opts = {
@@ -86,8 +87,8 @@ return {
         end, { desc = "git diff against last commit" })
 
         -- Toggles
-        map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "toggle git blame line" })
-        map("n", "<leader>td", gs.toggle_deleted, { desc = "toggle git show deleted" })
+        map("n", "<leader>gb", gs.toggle_current_line_blame, { desc = "toggle [g]it [b]lame line" })
+        map("n", "<leader>gd", gs.toggle_deleted, { desc = "toggle [g]it show [d]eleted" })
 
         -- Text object
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { desc = "select git hunk" })
