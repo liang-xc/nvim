@@ -12,7 +12,7 @@ return {
       },
       indent = {
         enable = true,
-        disable = { "ocaml" },
+        disable = { "ocaml", "ocaml_interface" },
       },
       ensure_installed = {
         "cmake",
