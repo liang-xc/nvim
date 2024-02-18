@@ -11,6 +11,7 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.inccommand = "split"
 vim.o.incsearch = true
+vim.o.laststatus = 3 -- global status line
 vim.o.list = true
 vim.o.number = true
 vim.o.relativenumber = true
