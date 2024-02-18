@@ -13,6 +13,8 @@ return {
       },
     },
     config = function()
+      require("telescope").load_extension("aerial")
+      require("telescope").load_extension("file_browser")
       require("telescope").setup({
         defaults = {
           mappings = {
@@ -22,6 +24,11 @@ return {
           },
         },
         extensions = {
+          aerial = {
+            show_nesting = {
+              ["_"] = false,
+            },
+          },
           file_browser = {
             theme = "ivy",
             hijack_netrw = true,
@@ -29,7 +36,6 @@ return {
         },
       })
       pcall(require("telescope").load_extension, "fzf")
-      require("telescope").load_extension("file_browser")
     end,
   },
   {
