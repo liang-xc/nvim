@@ -27,7 +27,18 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     lazy = "VeryLazy",
-    opts = {},
+    opts = {
+      layout = {
+        max_width = { 40, 0.5 },
+        min_width = { 20, 0.3 },
+      },
+
+      float = {
+        relative = "win",
+      },
+
+      close_on_select = false,
+    },
   },
   { "tpope/vim-fugitive" },
   {
