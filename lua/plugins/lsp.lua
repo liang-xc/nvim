@@ -1,4 +1,5 @@
 return {
+  { "ionide/Ionide-vim" },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -80,6 +81,7 @@ return {
       -- Install these separately
       lspconfig.clangd.setup({ capabilities = capabilities })
       lspconfig.ocamllsp.setup({ capabilities = capabilities })
+      -- require("ionide").setup({ capabilities = capabilities })
     end,
   },
   {
