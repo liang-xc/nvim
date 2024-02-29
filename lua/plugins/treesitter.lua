@@ -26,6 +26,7 @@ return {
           "markdown",
           "markdown_inline",
           "ocaml",
+          "ocaml_interface",
           "python",
           "query",
           "rust",
@@ -55,4 +56,5 @@ return {
       })
     end,
   },
+  { "nvim-treesitter/nvim-treesitter-context" },
 }
