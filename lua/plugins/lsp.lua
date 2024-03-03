@@ -1,5 +1,5 @@
 return {
-  { "ionide/Ionide-vim" },
+  { "ionide/Ionide-vim", ft = "fsharp" },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -12,7 +12,7 @@ return {
       local lspconfig = require("lspconfig")
       -- cmp lsp capabilities
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       require("mason").setup()
       require("mason-lspconfig").setup({

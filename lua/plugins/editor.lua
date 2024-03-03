@@ -50,7 +50,7 @@ return {
   },
   {
     "folke/which-key.nvim",
-    event = "VeryLazy",
+    lazy = true,
     init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -59,16 +59,19 @@ return {
   },
   {
     "mbbill/undotree",
+    lazy = true,
   },
 
   -- diagnostics, linting and formatting
   {
     "folke/trouble.nvim",
+    lazy = true,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {},
   },
   {
     "stevearc/conform.nvim",
+    event = "InsertEnter",
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
