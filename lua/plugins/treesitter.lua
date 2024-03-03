@@ -1,6 +1,6 @@
 return {
-  { "nvim-treesitter/nvim-treesitter-textobjects" },
-  { "nvim-treesitter/playground" },
+  { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
+  { "nvim-treesitter/playground", lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
