@@ -1,6 +1,14 @@
 return {
   { "ionide/Ionide-vim", ft = "fsharp" },
   {
+    "lervag/vimtex",
+    ft = "tex",
+    init = function()
+      vim.g.vimtex_view_method = "sumatrapdf"
+      vim.g.vimtex_indent_enabled = 0
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       "folke/neodev.nvim",
