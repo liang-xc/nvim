@@ -29,8 +29,8 @@ return {
     lazy = true,
     opts = {
       layout = {
-        max_width = { 40, 0.5 },
-        min_width = { 20, 0.3 },
+        max_width = { 30, 0.5 },
+        min_width = { 15, 0.3 },
       },
 
       float = {
@@ -38,6 +38,20 @@ return {
       },
 
       close_on_select = false,
+    },
+  },
+  {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      columns = { "icon" },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<M-h>"] = "actions.select_split",
+      },
+      view_options = {
+        show_hidden = true,
+      },
     },
   },
   { "tpope/vim-fugitive", lazy = true },

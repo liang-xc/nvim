@@ -190,6 +190,10 @@ vim.keymap.set({ "n", "v" }, "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "[A
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, { desc = "[U]ndotree Toggle" })
 
+-- oil.nvim
+vim.keymap.set("n", "<space>o", "<CMD>Oil<CR>", { desc = "Open [O]il buffer" })
+vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Open [O]il float" })
+
 -- which-key chain docs
 require("which-key").register({
   ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
