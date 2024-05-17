@@ -21,21 +21,25 @@ return {
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")
-    luasnip.config.setup({})
+    luasnip.config.set_config({
+      history = false,
+      updateevents = "TextChanged, TextChangedI",
+    })
 
     cmp.setup({
-      snippet = {
-        expand = function(args)
-          luasnip.lsp_expand(args.body)
-        end,
+      sources = {
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
       },
-
-      completion = { completeopt = "menu, menuone, noinsert" },
 
       mapping = cmp.mapping.preset.insert({
         ["<C-n>"] = cmp.mapping.select_next_item(),
         ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-y>"] = cmp.mapping(
+          cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Inser, select = true }),
+          { "i", "c" }
+        ),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<C-l>"] = cmp.mapping(function()
@@ -50,12 +54,28 @@ return {
         end, { "i", "s" }),
       }),
 
-      sources = {
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
-        { name = "path" },
+      snippet = {
+        expand = function(args)
+          luasnip.lsp_expand(args.body)
+        end,
       },
     })
     require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+    for _, ft_path in ipairs(vim.api.nvim_get_runtime_file("lua/snippets/*.lua", true)) do
+      loadfile(ft_path)()
+    end
+
+    vim.keymap.set({ "i", "s" }, "<C-k>", function()
+      if luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      end
+    end, { silent = true })
+
+    vim.keymap.set({ "i", "s" }, "<C-j>", function()
+      if luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      end
+    end, { silent = true })
   end,
 }
