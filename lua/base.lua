@@ -6,6 +6,7 @@ vim.o.autoindent = true
 vim.o.backup = false
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.o.breakindent = true
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.o.expandtab = true
 vim.o.hlsearch = false
 vim.o.ignorecase = true
