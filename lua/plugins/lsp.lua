@@ -3,8 +3,7 @@ return {
   {
     "lervag/vimtex",
     ft = "tex",
-    init = function()
-    end,
+    init = function() end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -25,6 +24,7 @@ return {
         ensure_installed = {
           "azure_pipelines_ls",
           "cmake",
+          "csharp_ls",
           "jsonls",
           "lemminx", -- xml
           "lua_ls",
