@@ -22,6 +22,7 @@ return {
           "cmake",
           "comment",
           "cpp",
+          "c_sharp",
           "lua",
           "markdown",
           "markdown_inline",
