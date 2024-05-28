@@ -1,5 +1,11 @@
 return {
-  { "ionide/Ionide-vim", ft = "fsharp" },
+  {
+    "ionide/Ionide-vim",
+    ft = "fsharp",
+    init = function()
+      vim.g["fsharp#fsi_keymap"] = "vim-fsharp"
+    end,
+  },
   {
     "lervag/vimtex",
     ft = "tex",
