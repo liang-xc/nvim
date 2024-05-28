@@ -3,7 +3,9 @@ return {
   {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
-    opts = {},
+    opts = {
+      disable_filetype = { "TelescopePrompt", "spectre_panel", "vim", "fsharp", "ocaml" },
+    },
   },
   {
     "norcalli/nvim-colorizer.lua",
