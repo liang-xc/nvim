@@ -54,7 +54,7 @@ return {
       },
     },
   },
-  { "tpope/vim-fugitive", lazy = true },
+  { "tpope/vim-fugitive" },
   { "lewis6991/gitsigns.nvim", opts = {} },
   {
     "nvim-lualine/lualine.nvim",
