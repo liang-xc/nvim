@@ -195,14 +195,23 @@ vim.keymap.set("n", "<space>o", "<CMD>Oil<CR>", { desc = "Open [O]il buffer" })
 vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Open [O]il float" })
 
 -- which-key chain docs
-require("which-key").register({
-  ["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-  ["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-  ["<leader>g"] = { name = "[G]it", _ = "which_key_ignore" },
-  ["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
-  ["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-  ["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-  ["<leader>t"] = { name = "[T]rouble", _ = "which_key_ignore" },
-  ["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-  ["<space>c"] = { name = "[C]omment", _ = "which_key_ignore" },
+require("which-key").add({
+  { "<leader>c", group = "[C]ode" },
+  { "<leader>c_", hidden = true },
+  { "<leader>d", group = "[D]ocument" },
+  { "<leader>d_", hidden = true },
+  { "<leader>g", group = "[G]it" },
+  { "<leader>g_", hidden = true },
+  { "<leader>h", group = "Git [H]unk" },
+  { "<leader>h_", hidden = true },
+  { "<leader>r", group = "[R]ename" },
+  { "<leader>r_", hidden = true },
+  { "<leader>s", group = "[S]earch" },
+  { "<leader>s_", hidden = true },
+  { "<leader>t", group = "[T]rouble" },
+  { "<leader>t_", hidden = true },
+  { "<leader>w", group = "[W]orkspace" },
+  { "<leader>w_", hidden = true },
+  { "<space>c", group = "[C]omment" },
+  { "<space>c_", hidden = true },
 })
