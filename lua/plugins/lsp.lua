@@ -30,14 +30,10 @@ return {
         ensure_installed = {
           "azure_pipelines_ls",
           "cmake",
-          "csharp_ls",
           "jsonls",
-          "lemminx", -- xml
           "lua_ls",
           "pyright",
-          "powershell_es",
           "ruff_lsp", -- python linter
-          "rust_analyzer",
           "texlab",
           "yamlls",
         },
@@ -94,7 +90,6 @@ return {
       -- Install these separately
       lspconfig.clangd.setup({ capabilities = capabilities })
       lspconfig.ocamllsp.setup({ capabilities = capabilities })
-      -- require("ionide").setup({ capabilities = capabilities })
     end,
   },
   {

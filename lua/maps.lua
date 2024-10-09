@@ -155,26 +155,6 @@ vim.api.nvim_set_keymap(
   { noremap = true, desc = "Telescope file [B]rowser" }
 )
 
--- trouble.nvim
-vim.keymap.set("n", "<leader>tt", function()
-  require("trouble").toggle()
-end, { desc = "[t]oggle [t]rouble" })
-vim.keymap.set("n", "<leader>tw", function()
-  require("trouble").toggle("workspace_diagnostics")
-end, { desc = "[t]rouble [w]orkspace diagnostics" })
-vim.keymap.set("n", "<leader>td", function()
-  require("trouble").toggle("document_diagnostics")
-end, { desc = "[t]rouble [d]ocument diagnostics" })
-vim.keymap.set("n", "<leader>tq", function()
-  require("trouble").toggle("quickfix")
-end, { desc = "[t]rouble [q]uickfix" })
-vim.keymap.set("n", "<leader>tl", function()
-  require("trouble").toggle("loclist")
-end, { desc = "[t]rouble [l]oclist" })
-vim.keymap.set("n", "<leader>tr", function()
-  require("trouble").toggle("lsp_references")
-end, { desc = "[t]rouble lsp [r]eferences" })
-
 -- conform.nvim
 vim.keymap.set({ "n", "v" }, "<leader>f", function()
   require("conform").format({
