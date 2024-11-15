@@ -29,11 +29,10 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "azure_pipelines_ls",
-          "cmake",
           "jsonls",
           "lua_ls",
           "pyright",
-          "ruff_lsp", -- python linter
+          "ruff",
           "texlab",
           "yamlls",
         },
