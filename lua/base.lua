@@ -45,8 +45,6 @@ vim.o.winblend = 0
 vim.o.pumblend = 0
 vim.o.background = "dark"
 
-vim.g.no_ocaml_maps = 1
-
 -- highlighting when yanking text
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking text",

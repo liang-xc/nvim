@@ -1,1 +1,1 @@
-vim.opt_local.colorcolumn = "90"
+vim.g.no_ocaml_maps = 1
