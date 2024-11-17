@@ -31,6 +31,7 @@ return {
           "azure_pipelines_ls",
           "jsonls",
           "lua_ls",
+          "neocmake",
           "pyright",
           "ruff",
           "texlab",
@@ -89,6 +90,10 @@ return {
       -- Install these separately
       lspconfig.clangd.setup({ capabilities = capabilities })
       lspconfig.ocamllsp.setup({ capabilities = capabilities })
+      lspconfig.hls.setup({
+        capabilities = capabilities,
+        filetypes = { "haskell", "lhaskell", "cabal" }
+      })
     end,
   },
   {
