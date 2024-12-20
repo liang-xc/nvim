@@ -1,6 +1,6 @@
 return {
   { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true },
-  { "nvim-treesitter/playground", lazy = true },
+  { "nvim-treesitter/playground",                  lazy = true },
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -22,7 +22,7 @@ return {
           "cmake",
           "comment",
           "cpp",
-          "c_sharp",
+          "haskell",
           "lua",
           "markdown",
           "markdown_inline",
@@ -30,7 +30,6 @@ return {
           "ocaml_interface",
           "python",
           "query",
-          "rust",
           "sql",
           "vim",
           "vimdoc",
@@ -39,7 +38,7 @@ return {
         playground = {
           enable = true,
           disable = {},
-          updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+          updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
           persist_queries = false, -- Whether the query persists across vim sessions
           keybindings = {
             toggle_query_editor = "o",
