@@ -27,8 +27,8 @@ return {
 
       require("mason").setup()
       require("mason-lspconfig").setup({
+        automatic_installation = false,
         ensure_installed = {
-          "azure_pipelines_ls",
           "jsonls",
           "lua_ls",
           "neocmake",
