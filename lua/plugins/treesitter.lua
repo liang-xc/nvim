@@ -18,11 +18,13 @@ return {
           disable = { "ocaml", "ocaml_interface" },
         },
         ensure_installed = {
+          "bash",
           "cmake",
           "comment",
           "cpp",
           "haskell",
           "lua",
+          "make",
           "markdown",
           "markdown_inline",
           "ocaml",
