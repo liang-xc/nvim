@@ -29,6 +29,7 @@ return {
       require("mason-lspconfig").setup({
         automatic_installation = false,
         ensure_installed = {
+          "bashls",
           "jsonls",
           "lua_ls",
           "neocmake",

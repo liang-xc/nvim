@@ -36,14 +36,9 @@ return {
         lua = { "stylua" },
         ocaml = { "ocamlformat" },
         python = { "ruff_format" },
+        tex = { "tex-fmt" }
       },
-      format_on_save = function(bufnr)
-        local ignore_filetypes = { "python" }
-        if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
-          return
-        end
-        return { timeout_ms = 500, lsp_fallback = true }
-      end,
+      format_on_save = { timeout_ms = 500, lsp_fallback = true }
     },
   },
 }
