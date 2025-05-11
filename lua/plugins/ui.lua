@@ -19,6 +19,22 @@ local function trailing_whitespace_line()
 end
 
 return {
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 1000,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+          styles = {
+            comments = "italic",
+          },
+        },
+      })
+
+      vim.cmd.colorscheme("nordfox")
+    end,
+  },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {
     "stevearc/aerial.nvim",
@@ -55,7 +71,7 @@ return {
     },
   },
   { "tpope/vim-fugitive" },
-  { "lewis6991/gitsigns.nvim",     opts = {} },
+  { "lewis6991/gitsigns.nvim", opts = {} },
   {
     "nvim-lualine/lualine.nvim",
     opts = {
