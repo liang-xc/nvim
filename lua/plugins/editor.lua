@@ -36,9 +36,9 @@ return {
         lua = { "stylua" },
         ocaml = { "ocamlformat" },
         python = { "ruff_format" },
-        tex = { "tex-fmt" }
+        tex = { "tex-fmt" },
       },
-      format_on_save = { timeout_ms = 500, lsp_fallback = true }
+      format_on_save = { timeout_ms = 500, lsp_fallback = true },
     },
   },
 }
