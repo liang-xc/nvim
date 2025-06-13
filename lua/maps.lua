@@ -24,13 +24,6 @@ vim.keymap.set("n", "<space>l", "<C-w>l")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Diagnostic
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
 -- Git
 vim.keymap.set("n", "<leader>gi", vim.cmd.Git, { desc = "[Gi]t" })
 vim.keymap.set("n", "<leader>gp", function()
@@ -62,8 +55,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
     nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
-    -- See `:help K` for why this keymap
-    nmap("K", vim.lsp.buf.hover, "Hover Documentation")
     nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
     -- Lesser used LSP functionality
@@ -176,22 +167,14 @@ vim.keymap.set("n", "<leader>o", require("oil").toggle_float, { desc = "Open [O]
 
 -- which-key chain docs
 require("which-key").add({
-  { "<leader>c",  group = "[C]ode" },
+  { "<leader>c", group = "[C]ode" },
   { "<leader>c_", hidden = true },
-  { "<leader>d",  group = "[D]ocument" },
+  { "<leader>d", group = "[D]ocument" },
   { "<leader>d_", hidden = true },
-  { "<leader>g",  group = "[G]it" },
+  { "<leader>g", group = "[G]it" },
   { "<leader>g_", hidden = true },
-  { "<leader>h",  group = "Git [H]unk" },
-  { "<leader>h_", hidden = true },
-  { "<leader>r",  group = "[R]ename" },
-  { "<leader>r_", hidden = true },
-  { "<leader>s",  group = "[S]earch" },
+  { "<leader>s", group = "[S]earch" },
   { "<leader>s_", hidden = true },
-  { "<leader>t",  group = "[T]rouble" },
-  { "<leader>t_", hidden = true },
-  { "<leader>w",  group = "[W]orkspace" },
+  { "<leader>w", group = "[W]orkspace" },
   { "<leader>w_", hidden = true },
-  { "<space>c",   group = "[C]omment" },
-  { "<space>c_",  hidden = true },
 })

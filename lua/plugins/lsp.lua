@@ -1,6 +1,5 @@
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("clangd")
-vim.lsp.enable("fsautocomplete")
 vim.lsp.enable("hls")
 vim.lsp.enable("neocmake")
 vim.lsp.enable("ocamllsp")
@@ -67,7 +66,6 @@ return {
         "bashls",
         "buf_ls",
         "jsonls",
-        "neocmake",
         "texlab",
         "yamlls",
       },

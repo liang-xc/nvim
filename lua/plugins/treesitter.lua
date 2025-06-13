@@ -41,6 +41,7 @@ return {
           "sql",
           "vim",
           "vimdoc",
+          "xml",
           "yaml",
         },
         playground = {
