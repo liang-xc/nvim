@@ -32,7 +32,7 @@ return {
         },
       })
 
-      vim.cmd.colorscheme("nordfox")
+      vim.cmd.colorscheme("nightfox")
     end,
   },
   { "nvim-tree/nvim-web-devicons", lazy = true },
@@ -71,7 +71,7 @@ return {
     },
   },
   { "tpope/vim-fugitive" },
-  { "lewis6991/gitsigns.nvim", opts = {} },
+  { "lewis6991/gitsigns.nvim",     opts = {} },
   {
     "nvim-lualine/lualine.nvim",
     opts = {
