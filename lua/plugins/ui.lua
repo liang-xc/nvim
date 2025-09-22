@@ -20,20 +20,12 @@ end
 
 return {
   {
-    "EdenEast/nightfox.nvim",
+    "AlexvZyl/nordic.nvim",
+    lazy = false,
     priority = 1000,
     config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = true,
-          styles = {
-            comments = "italic",
-          },
-        },
-      })
-
-      vim.cmd.colorscheme("nightfox")
-    end,
+      require("nordic").load()
+    end
   },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {
