@@ -24,8 +24,16 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      require("nordic").setup({
+        italic_comments = false,
+        on_highlight = function(highlights, _palette)
+          for _, highlight in pairs(highlights) do
+            highlight.italic = false
+          end
+        end,
+      })
       require("nordic").load()
-    end
+    end,
   },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {
@@ -63,7 +71,7 @@ return {
     },
   },
   { "tpope/vim-fugitive" },
-  { "lewis6991/gitsigns.nvim",     opts = {} },
+  { "lewis6991/gitsigns.nvim", opts = {} },
   {
     "nvim-lualine/lualine.nvim",
     opts = {
