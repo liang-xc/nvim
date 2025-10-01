@@ -54,4 +54,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-vim.cmd("colorscheme carbonfox")
+vim.cmd("colorscheme nordfox")
