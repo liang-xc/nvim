@@ -18,22 +18,13 @@ local function trailing_whitespace_line()
   return space ~= 0 and "twl #" .. space or ""
 end
 
+vim.o.termguicolors = true
+
 return {
   {
-    "AlexvZyl/nordic.nvim",
+    "Edeneast/nightfox.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      require("nordic").setup({
-        italic_comments = false,
-        on_highlight = function(highlights, _palette)
-          for _, highlight in pairs(highlights) do
-            highlight.italic = false
-          end
-        end,
-      })
-      require("nordic").load()
-    end,
   },
   { "nvim-tree/nvim-web-devicons", lazy = true },
   {
