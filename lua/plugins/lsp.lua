@@ -69,7 +69,9 @@ return {
         "buf_ls",
         "jsonls",
         "texlab",
+        "ts_ls",
         "yamlls",
+        "vue_ls"
       },
       ensure_installed = {
         "bashls",
@@ -78,9 +80,11 @@ return {
         "lua_ls",
         "neocmake",
         "texlab",
+        "ts_ls",
         "yamlls",
         "pyright",
         "ruff",
+        "vue_ls",
       },
     },
   },
@@ -118,6 +122,7 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = {
       "L3MON4D3/LuaSnip",
+      version = "v2.*",
       build = (function()
         if vim.fn.has("win32") == 1 or vim.fn.executable("make") == 0 then
           return
